@@ -1,5 +1,6 @@
 class User < ApplicationRecord
-  
+  self.per_page = 7
+
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   before_save {self.email = email.downcase }
   
@@ -12,7 +13,9 @@ class User < ApplicationRecord
 
   
   
-  
+  def self.function_a
+    
+  end
   # VALID_EMAIL_REGEX = /\A[\w+\-.2-]+@[a-z\d\-.]+\.[a-z]+\z/i
 
   # before_save { email.downcase! }
