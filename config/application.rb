@@ -5,6 +5,9 @@ require "rails/all"
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
+HOSTNAME = ENV['HOSTNAME']
+require 'dotenv'
+Dotenv.load
 
 module AppDemo
   class Application < Rails::Application
