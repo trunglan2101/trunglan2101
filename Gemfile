@@ -31,6 +31,9 @@ gem 'coffee-script-source', '1.8.0'
 gem 'jquery-rails'
 gem 'will_paginate', '~> 3.3'
 gem 'bootstrap-will_paginate', '~> 1.0'
+gem 'figaro', '~> 1.2'
+gem 'dotenv-rails', :require => 'dotenv/rails-now'
+gem 'sidekiq'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
