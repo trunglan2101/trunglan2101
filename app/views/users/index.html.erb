@@ -1,10 +1,18 @@
-<% provide(:title, 'All Users') %>
-<h1>All users</h1>
+<% provide(:title, 'All Users Microposts') %>
+<%# <h1>All users</h1> %>
 
 <%= will_paginate @users %>
 <ul class="users">
   <% @users.each do |user| %>
-    <%= render user%>
+    <%= render user %>
   <% end %>
 </ul>
 <%= will_paginate @users %>
+
+<%# <%= will_paginate @microposts %>
+<%# <ul> %>
+  <%# <% @microposts.each do |microposts|%>
+    <%# <%= render microposts%>
+  <%# <% end %>
+<%# </ul> %>
+<%# <%= will_paginate @microposts%>

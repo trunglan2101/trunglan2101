@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  # get 'sessions/new'
+  get 'password_resets/new'
+  get 'password_resets/edit'
   # get 'users/show'
   # get 'user/new'
   require 'sidekiq/web'
@@ -17,6 +18,8 @@ Rails.application.routes.draw do
   get '/logout' => 'sessions#destroy'
 
   resources :users
+  resource :microposts, only: [:create, :destroy]
   resources :account_activations, only: [:edit]
+  resources :password_resets, only: [:new, :create, :edit, :update]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
