@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  has_many :microposts, dependent: :destroy
+  
   self.per_page = 7
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -13,6 +15,10 @@ class User < ApplicationRecord
   
   has_secure_password
   validates :password, presence: true, length: { minimum: 6}
+
+  def feed
+    Micropost.where("user_id = ?", id)
+  end
 
   def User.new_token
     SecureRandom.urlsafe_base64

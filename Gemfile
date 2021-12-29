@@ -7,6 +7,8 @@ ruby '2.7.0'
 gem 'rails', '~> 6.1.4', '>= 6.1.4.1'
 # Use mysql as the database for Active Record
 gem 'mysql2', '~> 0.5'
+# gem 'mysql2', '~> 0.5.3'
+gem 'sassc', '~> 2.4'
 # Use Puma as the app server
 gem 'bootstrap-sass', '~> 3.4', '>= 3.4.1'
 gem 'puma', '~> 5.0'
@@ -34,6 +36,10 @@ gem 'bootstrap-will_paginate', '~> 1.0'
 gem 'figaro', '~> 1.2'
 gem 'dotenv-rails', :require => 'dotenv/rails-now'
 gem 'sidekiq'
+gem 'faker', '~> 2.19'
+gem 'active_storage_validations', '~> 0.9.6'
+gem 'image_processing', '~> 1.12', '>= 1.12.1'
+gem 'mini_magick', '~> 4.11'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
