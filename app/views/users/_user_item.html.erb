@@ -1,0 +1,11 @@
+<tr>
+  <th>#{n+1}</th>
+  <td><%= gravatar_for user_item, size: 20 %></td>
+  <td><%= link_to user_item.name, user_item %></td>
+  <td><%= user_item.email %></td>
+  <td>
+    <% if current_user.admin? && !current_user?(user_item) %>
+      <%= link_to "delete", user_item, method: :delete, data: { confirm: "You sure?" } %>
+    <% end %>
+  </td>
+</tr>
