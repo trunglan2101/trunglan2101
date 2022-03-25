@@ -2,7 +2,7 @@
 <%# <h1>All users</h1> %>
 
 <%= will_paginate @users %>
-<ul class="users">
+<ul class="users ">
   <% @users.each do |user| %>
     <%= render user %>
   <% end %>
@@ -15,4 +15,22 @@
     <%# <%= render microposts%>
   <%# <% end %>
 <%# </ul> %>
-<%# <%= will_paginate @microposts%>
+<%# <%= will_paginate @microposts %>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Stt</th>
+      <th scope="col">Avatar</th>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= will_paginate @users %>
+    <% @users.each do |user| %>
+      <%= render "user_item", user_item: user %>
+    <% end %>
+    <%= will_paginate @users %>
+  </tbody>
+</table>
