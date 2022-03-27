@@ -1,11 +1,17 @@
 <tr>
-  <th>#{n+1}</th>
-  <td><%= gravatar_for user_item, size: 20 %></td>
+  <th><%= index + 1 %></th>
+  <td>
+    <% if user_item.image.attached? %>
+      <%= link_to image_tag(user_item.image, style:"width:50px"), user_item %>
+    <% else %>
+      <%= gravatar_for user_item, size: 50 %>
+    <% end %>
+  </td>
   <td><%= link_to user_item.name, user_item %></td>
   <td><%= user_item.email %></td>
   <td>
     <% if current_user.admin? && !current_user?(user_item) %>
-      <%= link_to "delete", user_item, method: :delete, data: { confirm: "You sure?" } %>
+      <%= button_to "delete", user_item, class:"btn btn-primary", method: :delete, data: { confirm: "You sure?" } %>
     <% end %>
   </td>
 </tr>

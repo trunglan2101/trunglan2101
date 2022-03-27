@@ -1,13 +1,13 @@
 <% provide(:title, 'All Users Microposts') %>
 <%# <h1>All users</h1> %>
-
-<%= will_paginate @users %>
-<ul class="users ">
-  <% @users.each do |user| %>
-    <%= render user %>
-  <% end %>
-</ul>
-<%= will_paginate @users %>
+<%# 
+<%# <%= will_paginate @users %>
+<%# <ul class="users "> %>
+  <%# <% @users.each do |user| %>
+    <%# <%= render user %>
+  <%# <% end %>
+<%# </ul> %>
+<%# <%= will_paginate @users %>
 
 <%# <%= will_paginate @microposts %>
 <%# <ul> %>
@@ -16,6 +16,8 @@
   <%# <% end %>
 <%# </ul> %>
 <%# <%= will_paginate @microposts %>
+<%# <%= will_paginate @users %>
+
 <table class="table">
   <thead>
     <tr>
@@ -27,10 +29,16 @@
     </tr>
   </thead>
   <tbody>
-    <%= will_paginate @users %>
-    <% @users.each do |user| %>
-      <%= render "user_item", user_item: user %>
+  
+    <% @users.each_with_index do |user, index| %>
+      
+      <%= render "user_item", user_item: user, index: index %>
+      
     <% end %>
-    <%= will_paginate @users %>
+    
   </tbody>
 </table>
+<div>
+  <%= link_to "Create new user", signup_path , class:"btn btn-secondary"%>
+</div>
+<%= will_paginate @user %>

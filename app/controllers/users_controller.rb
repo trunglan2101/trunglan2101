@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   
   def index
     
-    @users = User.paginate(page: params[:page])
+    @users = User.paginate(page: params[:page]).order("created_at desc")
   end
 
   def new
@@ -54,7 +54,7 @@ class UsersController < ApplicationController
   
   private
     def user_params
-      params.require(:user).permit(:name, :email, :password, :password_confirmation)      
+      params.require(:user).permit(:name, :email, :password, :password_confirmation, :image)      
     end
 
     def correct_user
