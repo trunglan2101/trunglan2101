@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  
   get 'password_resets/new'
   get 'password_resets/edit'
   # get 'users/show'
@@ -18,6 +19,7 @@ Rails.application.routes.draw do
   get '/logout' => 'sessions#destroy'
 
   resources :users
+  resources :catelogies
   resource :microposts, only: [:create, :destroy]
   resources :account_activations, only: [:edit]
   resources :password_resets, only: [:new, :create, :edit, :update]

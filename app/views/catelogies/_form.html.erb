@@ -1,0 +1,24 @@
+<%= form_for @catelogy do |f| %>
+  <% @catelogy.errors.full_messages_for(:name).each do |msg| %>
+    <%= msg %>
+  <% end %> <br>
+  <% @catelogy.errors.full_messages_for(:description).each do |msg| %>
+    <%= msg %>
+  <% end %>
+  <div>
+    <%= f.label :image %>
+    <%= f.file_field :image %>
+  </div>
+  <div>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div>
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+  </div>
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %>

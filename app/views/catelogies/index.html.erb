@@ -1,0 +1,29 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Stt</th>
+      <th scope="col">Image</th>
+      <th scope="col">Name</th>
+      <th scope="col">Description</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @catelogies.each_with_index do |catelogy, index| %>
+    <tr>
+      <th scope="row"><%= index+1 %></th>
+      <td><%= catelogy.image %></td>
+      <td><%= link_to catelogy.name, catelogy %></td>
+      <td><%= catelogy.description %></td>
+      <td>
+        <%= link_to "Edit", edit_catelogy_path(catelogy) %>
+        <%= link_to "Delete", catelogy, method: :delete, data: {confirm: "are you sure?"} %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+<div>
+  <%= link_to "Create catelogy", new_catelogy_path %>
+</div>
+<%= will_paginate @catelogy %>
